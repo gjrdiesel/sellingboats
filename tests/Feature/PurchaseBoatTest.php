@@ -28,6 +28,7 @@ class PurchaseBoatTest extends TestCase
                 'date' => '02/13/2019',
                 'status' => 'quoted',
                 'price' => '140000',
+                'customer' => 1
             ])->assertSuccessful();
 
     }

@@ -10,7 +10,6 @@ trait MoneyTrait {
      */
     function getMoneyFormatAttribute()
     {
-        setlocale(LC_MONETARY, 'en_US');
-        return money_format('%(#10n', $this->list_price ?? $this->price);
+        return money_format('$%i', $this->list_price ?? $this->price);
     }
 }

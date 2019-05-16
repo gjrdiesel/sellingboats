@@ -82,7 +82,7 @@ class PurchaseBoatTest extends TestCase
         $this
             ->actingAs($user)
             ->get(route('sale.show', $sale['id']))
-            ->assertSee('Selling Price of Boat:  $  999,919,999.99')
+            ->assertSee('Selling Price of Boat: $999919999.99')
             ->assertSee(implode(', ', $customers->pluck('name')->toArray()));
     }
 }

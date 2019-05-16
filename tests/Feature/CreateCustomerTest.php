@@ -2,19 +2,21 @@
 
 namespace Tests\Feature;
 
-use App\Customer;
 use App\User;
+use App\Customer;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateCustomerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
+    public function test_must_be_logged_in()
+    {
+        $this->get(route('customer.index'))
+            ->assertRedirect(route('login'));
+    }
+
     public function test_can_save_customer()
     {
         $user = factory(User::class)->create();

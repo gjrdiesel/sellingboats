@@ -17,9 +17,8 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('boat_id');
             $table->dateTime('sold_at');
-            $table->enum('status', ['quoted', 'pending', 'delivered/completed']);
+            $table->enum('status', \App\Sale::$statuses);
             $table->decimal('price', 65);
-            $table->bigInteger('customer_id');
             $table->timestamps();
         });
     }

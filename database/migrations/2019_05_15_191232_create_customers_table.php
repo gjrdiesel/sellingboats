@@ -22,6 +22,13 @@ class CreateCustomersTable extends Migration
             $table->string('phone');
             $table->timestamps();
         });
+
+        Schema::create('customer_sale', function (Blueprint $table) {
+            $table->bigInteger('sale_id');
+            $table->bigInteger('customer_id');
+        });
+
+        \DB::statement('ALTER TABLE customers ADD FULLTEXT fulltext_index (first_name,last_name,address,email,phone)');
     }
 
     /**
@@ -32,5 +39,6 @@ class CreateCustomersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('customers');
+        Schema::dropIfExists('customer_sale');
     }
 }

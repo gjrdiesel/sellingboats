@@ -20,9 +20,12 @@ class CreateBoatsTable extends Migration
             $table->string('model');
             $table->string('serial_number');
             $table->string('stock_number');
+            $table->json('equipment_list');
             $table->integer('list_price');
             $table->timestamps();
         });
+
+        \DB::statement('ALTER TABLE boats ADD FULLTEXT fulltext_index (make,model,serial_number,stock_number)');
     }
 
     /**

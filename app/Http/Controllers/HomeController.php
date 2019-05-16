@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Boat;
+use App\Sale;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $boats = Boat::latest()
+            ->searchable(request('search'))
+            ->filterMake(request('make'))
+            ->filterModel(request('model'))
+            ->withCount('sales')
+            ->with('sales')
+            ->paginate();
+
+        $makes = Boat::groupBy('make')
+            ->limit(100)
+            ->pluck('make');
+
+        $models = Boat::groupBy('model')
+            ->limit(100)
+            ->filterMake(request('make'))
+            ->pluck('model');
+
+        $sales = Sale::latest()->limit(3)->orderBy('updated_at')->get();
+
+        return view('home', compact('boats', 'makes', 'models', 'sales'));
     }
 }

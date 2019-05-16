@@ -43,6 +43,19 @@ $factory->define(Boat::class, function (Faker $faker) {
         'model' => $boat['model'],
         'serial_number' => $faker->md5,
         'stock_number' => $faker->numerify('###-###'),
-        'list_price' => rand(100000, 400000)
+        'list_price' => rand(32000, 92000),
+        'equipment_list' => [
+            'features' => [
+                '25 Quart Cooler',
+                'Coastal Edition Decal (2)'
+            ],
+            'specifications' => [
+                'length' => rand(14, 40) . "' " . rand(0, 11) . '"',
+                'beam' => rand(8, 40) . "' " . rand(0, 11) . '"',
+                'draft' => rand(14, 40),
+                'weight' => rand(2000, 12000)
+            ],
+            'trailer' => []
+        ]
     ];
 });

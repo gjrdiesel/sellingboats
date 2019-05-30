@@ -1,8 +1,25 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,800');
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Show dark colors on print screen: Stackoverflow; https://stackoverflow.com/questions/2392366/print-background-colours-in-chrome
+@media print { body { -webkit-print-color-adjust: exact; } }
+
+
+a.boat {
+  &:hover {
+    text-decoration: none;
+  }
+
+  .box {
+    height: 200px;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.12);
+
+    &:hover {
+      box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

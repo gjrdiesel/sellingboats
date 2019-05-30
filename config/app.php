@@ -13,7 +13,11 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Marine Connection'),
+
+    'phone' => env('APP_PHONE'),
+    'email' => env('APP_EMAIL'),
+    'address' => env('APP_ADDRESS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +71,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/New_York',
 
     /*
     |--------------------------------------------------------------------------

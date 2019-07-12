@@ -15,11 +15,11 @@ class SaleRequest extends FormRequest
     public function rules()
     {
         return [
-            'boat_id' => 'required|exists:boats,id',
-            'sold_at' => 'required|date',
-            'status' => "required|in:" . implode(',', Sale::$statuses),
-            'price' => 'required|numeric|max:1000000000|min:1',
-            'customers' => 'required|array',
+            'boat_id'     => 'required|exists:boats,id',
+            'sold_at'     => 'required|date',
+            'status'      => 'required|in:'.implode(',', Sale::$statuses),
+            'price'       => 'required|numeric|max:1000000000|min:1',
+            'customers'   => 'required|array',
             'customers.*' => 'required|exists:customers,id',
         ];
     }

@@ -1,9 +1,6 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\Boat;
-use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 /*
@@ -23,7 +20,7 @@ $factory->define(\App\Sale::class, function (Faker $faker) {
             return factory(\App\Boat::class)->create();
         },
         'sold_at' => $faker->dateTimeBetween(),
-        'status' => $faker->randomElement(\App\Sale::$statuses),
-        'price' => rand(32000, 92000),
+        'status'  => $faker->randomElement(\App\Sale::$statuses),
+        'price'   => rand(32000, 92000),
     ];
 });

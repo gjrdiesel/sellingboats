@@ -27,10 +27,10 @@ class Boat extends Model
     ];
 
     protected $casts = [
-        'equipment_list' => 'json'
+        'equipment_list' => 'json',
     ];
 
-    function getYearMakeModelAttribute()
+    public function getYearMakeModelAttribute()
     {
         return "$this->year $this->make $this->model";
     }
@@ -45,12 +45,12 @@ class Boat extends Model
         return $query->where(array_filter(['model' => $model]));
     }
 
-    function sales()
+    public function sales()
     {
         return $this->hasMany(Sale::class);
     }
 
-    function getCreateOrEditLinkAttribute()
+    public function getCreateOrEditLinkAttribute()
     {
         if ($this->sales_count > 0) {
             return route('sale.show', $this->sales()->latest()->first());

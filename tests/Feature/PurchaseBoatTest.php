@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Sale;
 use App\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class PurchaseBoatTest extends TestCase
 {
@@ -27,11 +27,11 @@ class PurchaseBoatTest extends TestCase
         $this
             ->actingAs($user)
             ->post(route('sale.store'), [
-                'boat_id' => $boat->id,
-                'sold_at' => '2017-06-1T14:00',
-                'status' => 'quoted',
-                'price' => 999999999.99,
-                'customers' => $ids
+                'boat_id'   => $boat->id,
+                'sold_at'   => '2017-06-1T14:00',
+                'status'    => 'quoted',
+                'price'     => 999999999.99,
+                'customers' => $ids,
             ])->assertSessionHasNoErrors()
             ->assertRedirect(route('home'));
 
@@ -46,11 +46,11 @@ class PurchaseBoatTest extends TestCase
         $this
             ->actingAs($user)
             ->post(route('sale.store'), [
-                'boat_id' => 9,
-                'sold_at' => '03/13/',
-                'status' => 'lost',
-                'price' => 1000000001,
-                'customers' => [1337, 1337]
+                'boat_id'   => 9,
+                'sold_at'   => '03/13/',
+                'status'    => 'lost',
+                'price'     => 1000000001,
+                'customers' => [1337, 1337],
             ])->assertSessionHasErrors(['boat_id', 'sold_at', 'status', 'price', 'customers.0', 'customers.1']);
     }
 

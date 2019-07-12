@@ -25,7 +25,7 @@ class Customer extends Model
         'phone',
     ];
 
-    function getNameAttribute()
+    public function getNameAttribute()
     {
         return implode(' ', [$this->first_name, $this->last_name]);
     }

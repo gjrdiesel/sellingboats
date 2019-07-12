@@ -2,13 +2,14 @@
 
 namespace App\Traits;
 
-trait MoneyTrait {
+trait MoneyTrait
+{
     /**
-     * Gives $boat a moneyFormat so we can properly display dollar formats in one place
+     * Gives $boat a moneyFormat so we can properly display dollar formats in one place.
      *
      * @return string
      */
-    function getMoneyFormatAttribute()
+    public function getMoneyFormatAttribute()
     {
         return money_format('$%i', $this->list_price ?? $this->price);
     }

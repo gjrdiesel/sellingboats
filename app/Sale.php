@@ -13,17 +13,17 @@ class Sale extends Model
         'boat_id',
         'sold_at',
         'price',
-        'status'
+        'status',
     ];
 
     public static $statuses = ['quoted', 'pending', 'delivered/completed'];
 
-    function boat()
+    public function boat()
     {
         return $this->belongsTo(Boat::class);
     }
 
-    function customers()
+    public function customers()
     {
         return $this->belongsToMany(Customer::class);
     }

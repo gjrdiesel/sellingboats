@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Sale;
 use App\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class HomepageTest extends TestCase
 {
@@ -26,7 +26,7 @@ class HomepageTest extends TestCase
     }
 
     /**
-     * Make sure home page renders
+     * Make sure home page renders.
      *
      * @return void
      */
@@ -44,7 +44,7 @@ class HomepageTest extends TestCase
     }
 
     /**
-     * Ensure search works
+     * Ensure search works.
      *
      * @return void
      */

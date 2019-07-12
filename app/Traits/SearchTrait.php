@@ -3,12 +3,11 @@
 namespace App\Traits;
 
 /**
- * Poor man's Algolia
+ * Poor man's Algolia.
  *
  * courtesy of https://arianacosta.com/php/laravel/tutorial-full-text-search-laravel-5/
  *
  * Trait SearchTrait
- * @package App\Traits
  */
 trait SearchTrait
 {
@@ -20,9 +19,10 @@ trait SearchTrait
     }
 
     /**
-     * Replaces spaces with full text search wildcards
+     * Replaces spaces with full text search wildcards.
      *
      * @param string $term
+     *
      * @return string
      */
     protected function fullTextWildcards($term)
@@ -39,7 +39,7 @@ trait SearchTrait
              * because smaller ones are not indexed by mysql
              */
             if (strlen($word) >= 3) {
-                $words[$key] = '+' . $word . '*';
+                $words[$key] = '+'.$word.'*';
             }
         }
 
@@ -52,7 +52,8 @@ trait SearchTrait
      * Scope a query that matches a full text search of term.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string $term
+     * @param string                                $term
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSearch($query, $term)

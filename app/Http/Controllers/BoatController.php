@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class BoatController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -41,7 +40,8 @@ class BoatController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -52,7 +52,8 @@ class BoatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Boat $boat
+     * @param \App\Boat $boat
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Boat $boat)
@@ -63,7 +64,8 @@ class BoatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Boat $boat
+     * @param \App\Boat $boat
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Boat $boat)
@@ -74,8 +76,9 @@ class BoatController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Boat $boat
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Boat                $boat
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Boat $boat)
@@ -86,7 +89,8 @@ class BoatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Boat $boat
+     * @param \App\Boat $boat
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Boat $boat)

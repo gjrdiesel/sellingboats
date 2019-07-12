@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\User;
 use App\Customer;
-use Tests\TestCase;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class CreateCustomerTest extends TestCase
 {
@@ -28,10 +28,10 @@ class CreateCustomerTest extends TestCase
             ->actingAs($user)
             ->post('/customer', [
                 'first_name' => $customer->first_name,
-                'last_name' => $customer->last_name,
-                'address' => $customer->address,
-                'email' => $customer->email,
-                'phone' => $customer->phone,
+                'last_name'  => $customer->last_name,
+                'address'    => $customer->address,
+                'email'      => $customer->email,
+                'phone'      => $customer->phone,
             ])->assertSuccessful();
     }
 }

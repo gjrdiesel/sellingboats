@@ -9,7 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use PHP
     - name: composer install, phpunit
       run: |
         composer install
